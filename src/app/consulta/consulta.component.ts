@@ -8,19 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {ClienteService} from '../cliente.service';
 import {Cliente} from '../cadastro/cliente';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'}
-];
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -39,10 +27,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ConsultaComponent implements OnInit {
   nomeBusca: string = '';
-  colunasTable: string[] = ['id', 'nome', 'dataNascimento', 'email'];
+  colunasTable: string[] = ['id', 'nome', 'dataNascimento', 'email', 'acoes'];
   listaClientes: Cliente[] = [];
 
-  constructor(private service: ClienteService) {
+  constructor(private service: ClienteService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -51,7 +39,10 @@ export class ConsultaComponent implements OnInit {
 
   pesquisar() {
     this.listaClientes = this.service.pesquisaClientes(this.nomeBusca);
-    console.log(this.listaClientes,"pesquisa")
+    console.log(this.listaClientes, "pesquisa")
   }
 
+  editar(id: string) {
+    this.router.navigate(['/cadastro'], {queryParams: {'id': id}})
+  }
 }
