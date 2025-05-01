@@ -37,6 +37,7 @@
                 <input type="text"
                        [(ngModel)]="cliente.cpf"
                        name="cpf"
+                       mask="000.000.000-00"
                        placeholder="000.000.000-00"
                        matInput>
               </mat-form-field>
@@ -49,8 +50,8 @@
                 <input type="text"
                        [(ngModel)]="cliente.dataNascimento"
                        name="dataNascimento"
-                       placeholder="Ex:
-                       dd/mm/yyyy"
+                       mask="00/00/0000"
+                       placeholder="Ex: dd/mm/yyyy"
                        matInput>
               </mat-form-field>
             </div>
