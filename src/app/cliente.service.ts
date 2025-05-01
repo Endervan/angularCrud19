@@ -6,8 +6,7 @@ import {Cliente} from './cadastro/cliente';
 })
 export class ClienteService {
 
-  static REPO_CLIENTES = '_CLIENTES'
-
+  static REPO_CLIENTES = '_CLIENTES';
   constructor() {
   }
 
@@ -59,7 +58,6 @@ export class ClienteService {
     // if (indexItem > -1) {
     //   storage.splice(indexItem, 1);
     // }
-
     localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(novaLista));
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
@@ -10,6 +10,9 @@ import {Cliente} from './cliente';
 import {ClienteService} from '../cliente.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {BrasilapiService} from '../brasilapi.service';
+import {Estado, Municipio} from '../brasilapi.models';
 
 @Component({
   selector: 'app-cadastro',
@@ -24,7 +27,7 @@ import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
     MatIconModule,
     NgxMaskDirective
   ],
-  providers:[provideNgxMask()],
+  providers: [provideNgxMask()],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })
@@ -32,17 +35,25 @@ export class CadastroComponent implements OnInit {
 
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
+  estados: Estado[] = []
+  municipios: Municipio[] = []
+  snack: MatSnackBar = inject(MatSnackBar);
 
-  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: ClienteService,
+              private route: ActivatedRoute,
+              private brasilApiServ: BrasilapiService,
+              private router: Router) {
   }
 
   salvar() {
     if (!this.atualizando) {
       this.service.salvar(this.cliente);
       this.cliente = Cliente.newCliente(); // instanciando novo cliente e limpando formulario
+      this.mostraMessage('Salvo com sucessso')
     } else {
       this.service.atualizar(this.cliente);
-      this.router.navigate(['/consulta'])
+      this.router.navigate(['/consulta']);
+      this.mostraMessage('Atualizado com sucessso')
     }
 
   }
@@ -58,10 +69,22 @@ export class CadastroComponent implements OnInit {
           this.cliente = clienteEncontrado;
         }
       }
-    })
+    });
+    this.carregarUFs();
+  }
+
+  carregarUFs() {
+    this.brasilApiServ.listarUFs().subscribe({
+      next: listaEstados => console.log(listaEstados),
+      error: erro => console.error(erro)
+    });
   }
 
   limpar() {
     this.cliente = Cliente.newCliente();
+  }
+
+  mostraMessage(mensagem: string) {
+    this.snack.open(mensagem, 'OK',)
   }
 }
