@@ -13,6 +13,7 @@ import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {BrasilapiService} from '../brasilapi.service';
 import {Estado, Municipio} from '../brasilapi.models';
+import {MatSelectChange, MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-cadastro',
@@ -25,7 +26,8 @@ import {Estado, Municipio} from '../brasilapi.models';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    MatSelectModule
   ],
   providers: [provideNgxMask()],
   templateUrl: './cadastro.component.html',
@@ -67,6 +69,10 @@ export class CadastroComponent implements OnInit {
         if (clienteEncontrado) {
           this.atualizando = true;
           this.cliente = clienteEncontrado;
+          if (this.cliente.estado) {
+            const event = {value: this.cliente.estado};
+            this.carregarmunicipios(event as MatSelectChange)
+          }
         }
       }
     });
@@ -75,9 +81,18 @@ export class CadastroComponent implements OnInit {
 
   carregarUFs() {
     this.brasilApiServ.listarUFs().subscribe({
-      next: listaEstados => console.log(listaEstados),
+      next: listaEstados => this.estados = listaEstados,
       error: erro => console.error(erro)
     });
+  }
+
+  carregarmunicipios(event: MatSelectChange) {
+    const ufSelecionado = event.value;
+    this.brasilApiServ.listarMunicipio(ufSelecionado).subscribe({
+      next: municipios => this.municipios = municipios, //  this.municipios = municipios
+      error: erro => console.log(erro)
+    })
+
   }
 
   limpar() {

@@ -5,6 +5,8 @@ export class Cliente {
   nome?: string;
   cpf?: string;
   dataNascimento?: string;
+  estado?: string;
+  municipio?: string;
   email?: string;
   deletando?: boolean = false;
 
