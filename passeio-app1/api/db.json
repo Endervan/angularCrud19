@@ -1,0 +1,9 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "restaurantes",
+      "descricao": "lugares para alimentação"
+    }
+  ]
+}
