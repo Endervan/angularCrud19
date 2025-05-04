@@ -1,9 +1,24 @@
 {
   "categorias": [
     {
-      "id": 1,
-      "nome": "restaurantes",
-      "descricao": "lugares para alimentação"
+      "id": "2",
+      "nome": "praia boa fe",
+      "descricao": "lugares para diversão"
+    },
+    {
+      "id": "2a69",
+      "nome": "shopping active",
+      "descricao": "lugares para diversao e compras"
+    },
+    {
+      "id": "95ea",
+      "nome": "teste add",
+      "descricao": "sdadaddsadsa"
+    },
+    {
+      "id": "db92",
+      "nome": "dasdada",
+      "descricao": "dasdasda"
     }
   ]
 }
