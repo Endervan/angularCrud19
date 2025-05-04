@@ -2,23 +2,33 @@
   "categorias": [
     {
       "id": "2",
-      "nome": "praia boa fe",
+      "nome": "praias",
       "descricao": "lugares para diversão"
     },
     {
       "id": "2a69",
-      "nome": "shopping active",
+      "nome": "shoppings",
       "descricao": "lugares para diversao e compras"
     },
     {
-      "id": "95ea",
-      "nome": "teste add",
-      "descricao": "sdadaddsadsa"
+      "id": "3",
+      "nome": "Bares",
+      "descricao": "lugares para beber"
     },
     {
-      "id": "db92",
-      "nome": "dasdada",
-      "descricao": "dasdasda"
+      "id": "4",
+      "nome": "Parques",
+      "descricao": "lugares para piquiniques"
+    }
+  ],
+  "lugares": [
+    {
+      "id": "38a2",
+      "nome": "Praia do espelho",
+      "categoria": "cat.nome",
+      "localizacao": "bahia",
+      "urlFoto": "https://www.melhoresdestinos.com.br/wp-content/uploads/2020/11/praia-do-espelho-capa2019.jpg",
+      "avaliacao": "3"
     }
   ]
 }

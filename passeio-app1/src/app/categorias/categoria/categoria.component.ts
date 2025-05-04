@@ -24,7 +24,6 @@ export class CategoriaComponent {
     if (this.camposForm.valid) {
       this.service.salvar(this.camposForm.value).subscribe({
         next: categoria => {
-          console.log("Salvo com sucesso", categoria)
           this.camposForm.reset();
         },
         error: err => console.error(err)
