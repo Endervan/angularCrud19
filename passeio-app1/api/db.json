@@ -12,12 +12,12 @@
     },
     {
       "id": "3",
-      "nome": "Bares",
+      "nome": "bares",
       "descricao": "lugares para beber"
     },
     {
       "id": "4",
-      "nome": "Parques",
+      "nome": "parques",
       "descricao": "lugares para piquiniques"
     }
   ],
@@ -25,7 +25,7 @@
     {
       "id": "38a2",
       "nome": "Praia do espelho",
-      "categoria": "cat.nome",
+      "categoria": "praias",
       "localizacao": "bahia",
       "urlFoto": "https://www.melhoresdestinos.com.br/wp-content/uploads/2020/11/praia-do-espelho-capa2019.jpg",
       "avaliacao": "3"
@@ -33,9 +33,9 @@
     {
       "id": "dd65",
       "nome": "parque ibirapuera",
-      "categoria": "cat.nome",
+      "categoria": "parques",
       "localizacao": "Sao Paulo",
-      "urlFoto": "https://www.google.com/imgres?q=parque%20ibirapuera&imgurl=http%3A%2F%2Fparqueibirapuera.org%2Fwp%2Fwp-content%2Fuploads%2F2016%2F03%2FRN-Ibirapuera-Aerea-20150121-5-1-foto-destacada-resized.jpg&imgrefurl=https%3A%2F%2Fibirapuera.org%2Fparque-ibirapuera-um-triste-balanco%2Famp%2F&docid=f1MwRKwdc_qR8M&tbnid=1LXl0STeZn9yxM&vet=12ahUKEwjVsb2xqIqNAxXNqZUCHXvCHjkQM3oECBkQAA..i&w=2245&h=1496&hcb=2&ved=2ahUKEwjVsb2xqIqNAxXNqZUCHXvCHjkQM3oECBkQAA",
+      "urlFoto": "https://t4.ftcdn.net/jpg/04/91/69/33/360_F_491693328_D537QQJtQwvtg67Bda5kmcZzfldDsrSt.jpg",
       "avaliacao": "4"
     }
   ]

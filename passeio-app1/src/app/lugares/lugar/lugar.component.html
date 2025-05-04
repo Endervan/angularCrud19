@@ -24,7 +24,7 @@
               class="w-full p-3 border border-gray-300 rounded-sm focus:ring focus:ring-blue-400"
               required>
         <option value="">Selecione uma categoria</option>
-        <option *ngFor="let cat of categorias" value="cat.nome">{{ cat.nome }}</option>
+        <option *ngFor="let cat of categorias" [value]="cat.nome">{{ cat.nome }}</option>
       </select>
       <span *ngIf="isCampoValido('categoria')" class="text-red-500 text-sm"> Campo Obrigatório</span>
     </div>

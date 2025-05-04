@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {GaleriaRoutingModule} from './galeria-routing.module';
 import {GaleriaComponent} from './galeria/galeria.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {GaleriaComponent} from './galeria/galeria.component';
   ],
   imports: [
     CommonModule,
-    GaleriaRoutingModule
+    GaleriaRoutingModule,
+    FormsModule
   ]
 })
 export class GaleriaModule { }
