@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Layoutprops} from './layoutprops';
 import {ActivatedRoute, Router} from '@angular/router';
 import {filter, map} from 'rxjs';
+import {AuthgoogleService} from '../../authgoogle.service';
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +15,8 @@ export class LayoutComponent implements OnInit {
   props: Layoutprops = {titulo: '', subTitulo: ''};
 
   constructor(private readonly router: Router,
-              private readonly activatedRoute: ActivatedRoute) {
+              private readonly activatedRoute: ActivatedRoute,
+              private readonly loginService: AuthgoogleService) {
   }
 
   ngOnInit(): void {
@@ -35,4 +37,7 @@ export class LayoutComponent implements OnInit {
     return rotasFilhas?.snapshot.data as Layoutprops;
   }
 
+  logout() {
+    this.loginService.logout();
+  }
 }

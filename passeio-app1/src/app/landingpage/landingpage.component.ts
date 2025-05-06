@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Profile} from './profile';
 import {Router} from '@angular/router';
+import {AuthgoogleService} from '../authgoogle.service';
 
 @Component({
   selector: 'app-landingpage',
@@ -12,7 +13,8 @@ export class LandingpageComponent {
 
   profile: Profile | undefined;
 
-  constructor(private readonly router: Router) {
+  constructor(private readonly router: Router,
+              private readonly loginServ: AuthgoogleService) {
   }
 
   navegar() {
@@ -21,12 +23,13 @@ export class LandingpageComponent {
 
   logarComGoogle() {
     if (this.profile) {
-
+      this.loginServ.login();
     }
 
   }
 
   isLoggedIn(): boolean {
+    this.profile = this.loginServ.getLoggedProfile();
     return !!this.profile;
   }
 

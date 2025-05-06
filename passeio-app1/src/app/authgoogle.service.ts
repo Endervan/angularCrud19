@@ -36,6 +36,10 @@ export class AuthgoogleService {
     this.oauthSerice.revokeTokenAndLogout().then();
     this.oauthSerice.logOut();
     this.profile.set(null);
-    this.router.navigate(['']);
+    this.router.navigate(['']).then();
+  }
+
+  getLoggedProfile() {
+   return  this.profile();
   }
 }
