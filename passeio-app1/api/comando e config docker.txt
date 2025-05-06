@@ -1,0 +1,9 @@
+  Docker
+
+comando build (imagens) => docker build --tag cursoangular-api .
+comando ver imagens => docker images
+comando run e criacao container => docker run -p 4000:4000 --name cursoangular-api-container -d cursoangular-api
+comando ver processos =>docker ps
+comando remover container => docker container rm cursoangular-app-container
+comando remover image => docker image  rm cursoangular-app
+comando visualizar erros => docker logs cursoangular-app-container
